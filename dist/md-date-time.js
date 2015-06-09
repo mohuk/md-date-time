@@ -100,7 +100,7 @@
               }
             },
             main: function() {
-              return $sce.trustAsHtml(scope._mode === 'date' ? _dateFilter(scope.date, 'd') : "" + (_dateFilter(scope.date, 'h:mm')) + "<small>" + (_dateFilter(scope.date, 'a')) + "</small>");
+              return $sce.trustAsHtml(scope._mode === 'date' ? _dateFilter(scope.date, 'd') : (_dateFilter(scope.date, 'h:mm')) + "<small>" + (_dateFilter(scope.date, 'a')) + "</small>");
             },
             sub: function() {
               if (scope._mode === 'date') {
@@ -114,15 +114,15 @@
             _month: 0,
             _year: 0,
             _months: (function() {
-              var _i, _results;
-              _results = [];
-              for (i = _i = 0; _i <= 11; i = ++_i) {
-                _results.push(_dateFilter(new Date(0, i), 'MMMM'));
+              var j, results;
+              results = [];
+              for (i = j = 0; j <= 11; i = ++j) {
+                results.push(_dateFilter(new Date(0, i), 'MMMM'));
               }
-              return _results;
+              return results;
             })(),
             offsetMargin: function() {
-              return "" + (new Date(this._year, this._month).getDay() * 2.7) + "rem";
+              return (new Date(this._year, this._month).getDay() * 2.7) + "rem";
             },
             isVisible: function(d) {
               return new Date(this._year, this._month, d).getMonth() === this._month;
@@ -223,8 +223,8 @@
             return "" + ((scope._verticalMode != null) && scope._verticalMode ? 'vertical ' : '') + (scope._displayMode === 'full' ? 'full-mode' : scope._displayMode === 'time' ? 'time-only' : scope._displayMode === 'date' ? 'date-only' : scope._mode === 'date' ? 'date-mode' : 'time-mode');
           };
           scope.modeSwitch = function() {
-            var _ref;
-            return scope._mode = (_ref = scope._displayMode) != null ? _ref : scope._mode === 'date' ? 'time' : 'date';
+            var ref;
+            return scope._mode = (ref = scope._displayMode) != null ? ref : scope._mode === 'date' ? 'time' : 'date';
           };
           return scope.modeSwitchText = function() {
             if (scope._mode === 'date') {

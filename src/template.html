@@ -1,0 +1,53 @@
+<div ng-class="modeClass()" class="time-date">
+<!-- need to be ngIf-ed  -->
+<!--   <div ng-click="modeSwitch()" aria-label="Switch to {{modeSwitchText()}}" class="display">
+    <div class="title">{{display.title()}}</div>
+    <div class="content">
+      <div class="super-title">{{display.super()}}</div>
+      <div ng-bind-html="display.main()" class="main-title"></div>
+      <div class="sub-title">{{display.sub()}}</div>
+    </div>
+  </div> -->
+<!-- finish -->
+  <div class="control">
+    <div class="full-title">{{display.fullTitle()}}</div>
+    <div class="slider">
+      <div class="date-control">
+        <div class="title">
+          <md-button ng-click="calendar.incMonth(-1)" aria-label="Previous Month" style="float: left;"><i class="fa fa-caret-left"></i></md-button><span class="month-part">{{date | date:'MMMM'}}
+            <select ng-model="calendar.month" ng-change="calendar.monthChange()" ng-options="calendar.months.indexOf(month) as month for month in calendar.months"></select></span>
+          <input ng-model="calendar.year" ng-change="calendar.monthChange()" type="number" class="year-part"/>
+          <md-button ng-click="calendar.incMonth(1)" aria-label="Next Month" style="float: right;"><i class="fa fa-caret-right"></i></md-button>
+        </div>
+        <div class="headers">
+          <div ng-repeat="day in days track by $index" class="day-cell">{{day}}</div>
+        </div>
+        <div class="days">
+          <md-button ng-style="{'margin-left': calendar.offsetMargin()}" ng-class="calendar.class(1)" ng-show="calendar.isVisible(1)" ng-click="calendar.select(1)" class="day-cell">1</md-button>
+          <md-button ng-repeat="date in crates" ng-class="calendar.class(date)" ng-show="calendar.isVisible(date)" ng-click="calendar.select(date)" class="day-cell">{{date}}</md-button>
+        </div>
+      </div>
+<!--       <md-button ng-click="modeSwitch()" aria-label="Switch to {{modeSwitchText()}}" class="switch-control"><i class="fa fa-clock-o"></i><i class="fa fa-calendar"></i><span class="visuallyhidden">{{modeSwitchText()}}</span></md-button>
+      <div class="time-control">
+        <div class="time-inputs">
+          <input type="number" min="{{hours24 ? 0 : 1}}" max="{{hours24 ? 23 : 12}}" ng-model="clock.hours"/>
+          <md-button ng-click="clock.incHours(1)" aria-label="Increment Hours" class="hours up"><i class="fa fa-caret-up"></i></md-button>
+          <md-button ng-click="clock.incHours(-1)" aria-label="Decrement Hours" class="hours down"><i class="fa fa-caret-down"></i></md-button>
+          <input type="number" min="0" max="59" ng-model="clock.minutes"/>
+          <md-button ng-click="clock.incMinutes(1)" aria-label="Increment Minutes" class="minutes up"><i class="fa fa-caret-up"></i></md-button>
+          <md-button ng-click="clock.incMinutes(-1)" aria-label="Decrement Minutes" class="minutes down"><i class="fa fa-caret-down"></i></md-button>
+        </div>
+        <div ng-if="!hours24" class="buttons">
+          <md-button ng-click="clock.setAM()" aria-label="Switch AM/PM">{{date | date:'a'}}</md-button>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <!-- need to be ngIf-ed -->
+<!--   <div class="buttons">
+    <md-button ng-click="setNow()" aria-label="Set To Current {{ dispalyMode == 'date' ? 'Date' : 'Date/Time'}}">Now </md-button>
+    <md-button ng-click="cancel()" aria-label="Cancel">Cancel</md-button>
+    <md-button ng-click="save()" aria-label="Save">Save</md-button>
+  </div> -->
+  <!-- finish -->
+</div>
