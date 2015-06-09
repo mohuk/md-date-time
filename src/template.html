@@ -14,15 +14,15 @@
     <div class="slider">
       <div class="date-control">
         <div class="title">
-          <md-button ng-click="calendar.incMonth(-1)" aria-label="Previous Month" style="float: left;"><i class="fa fa-caret-left"></i></md-button><span class="month-part">{{date | date:'MMMM'}}
+          <md-button ng-click="calendar.incMonth(-1)" aria-label="Previous Month" class="prev-month"><i class="fa fa-chevron-left"></i></md-button><span class="month-part">{{date | date:'MMMM'}}
             <select ng-model="calendar.month" ng-change="calendar.monthChange()" ng-options="calendar.months.indexOf(month) as month for month in calendar.months"></select></span>
           <input ng-model="calendar.year" ng-change="calendar.monthChange()" type="number" class="year-part"/>
-          <md-button ng-click="calendar.incMonth(1)" aria-label="Next Month" style="float: right;"><i class="fa fa-caret-right"></i></md-button>
+          <md-button ng-click="calendar.incMonth(1)" aria-label="Next Month" class="next-month"><i class="fa fa-chevron-right"></i></md-button>
         </div>
         <div class="headers">
           <div ng-repeat="day in days track by $index" class="day-cell">{{day}}</div>
         </div>
-        <div class="days">
+        <div class="days clearfix">
           <md-button ng-style="{'margin-left': calendar.offsetMargin()}" ng-class="calendar.class(1)" ng-show="calendar.isVisible(1)" ng-click="calendar.select(1)" class="day-cell">1</md-button>
           <md-button ng-repeat="date in crates" ng-class="calendar.class(date)" ng-show="calendar.isVisible(date)" ng-click="calendar.select(date)" class="day-cell">{{date}}</md-button>
         </div>

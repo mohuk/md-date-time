@@ -10,15 +10,14 @@
 /* Start Main Styling */
 
 .selected-range {
-  background-color: gray;
+  background-color: #e0f3f9;
 }
 .visuallyhidden {
   visibility: hidden;
 }
 .time-date {
-  overflow: hidden;
   border: none;
-  width: 46.1rem;
+  width: auto;
   font-size: 1.2rem;
 }
 .time-date > .display {
@@ -61,9 +60,14 @@
   color: rgba(255,255,255,0.5);
 }
 .time-date > .control {
-  width: 53%;
+  width: 318px;
   overflow-x: hidden;
   position: relative;
+    background: #ffffff;
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.4);
+    margin: 20px 0px 0px 20px;
 }
 .time-date > .control > .full-title {
   display: none;
@@ -72,8 +76,8 @@
   line-height: 2.4rem;
 }
 .time-date > .control > .slider {
-  position: absolute !important;
-  width: 200%;
+
+  width: 100%;
   -webkit-transition: left 0.6s ease-in-out;
           transition: left 0.6s ease-in-out;
 }
@@ -81,11 +85,11 @@
 .time-date > .control > .slider > .time-control,
 .time-date > .control > .slider > .switch-control {
   float: left;
-  height: 20.9rem;
+
 }
 .time-date > .control > .slider > .date-control,
 .time-date > .control > .slider > .time-control {
-  width: 45%;
+  width: 100%;
   overflow-y: hidden;
 }
 .time-date > .control > .slider > .switch-control {
@@ -102,6 +106,8 @@
 .time-date > .control > .slider > .date-control > .title {
   font-weight: 500;
   line-height: 2.4rem;
+  background-color: #939498;
+    color: #ffffff;
 }
 .time-date > .control > .slider > .date-control > .title:after,
 .time-date > .control > .slider > .date-control > .title:before {
@@ -132,13 +138,19 @@
   border: none;
   width: 4.3rem;
 }
+.time-date > .control > .slider > .date-control > .title > input.year-part {
+    background: #939498;
+    color: #fff;
+}
 .time-date > .control > .slider > .date-control > .headers {
-  margin-top: -0.7rem;
   font-weight: 500;
   font-size: 1rem;
-  padding-left: 1.5rem;
+  padding-left: .5rem;
   color: #737373;
   text-align: left;
+  background-color: #ebebeb;
+    height: 44px;
+    margin-bottom: .5rem;
 }
 .time-date > .control > .slider > .date-control > .headers > .day-cell {
   text-align: center;
@@ -150,12 +162,12 @@
   height: 2.7rem;
   line-height: 2.8;
   cursor: pointer;
-  border-radius: 3rem;
+
 }
 .time-date > .control > .slider > .date-control > .days {
   font-size: 1rem;
-  padding-left: 1.5rem;
-  width: 20.790000000000003rem;
+  padding-left: .5rem;
+    padding-bottom: .5rem;
 }
 .time-date > .control > .slider > .date-control > .days .day-cell {
   color: #202020;
@@ -164,8 +176,8 @@
   color: #009688;
 }
 .time-date > .control > .slider > .date-control > .days .day-cell.selected {
-  color: #fff;
-  background-color: #009688;
+  color: #000;
+  background-color: #c6e8f2;
 }
 .time-date > .control > .slider > .date-control > .days .day-cell:hover,
 .time-date > .control > .slider > .date-control > .days .day-cell:active {
@@ -265,8 +277,7 @@
 }
 .time-date > .display,
 .time-date > .control {
-  height: 20.9rem;
-  float: left;
+
   text-align: center;
 }
 .time-date > .buttons {
@@ -353,6 +364,32 @@
   width: 100%;
   float: left;
 }
+.prev-month, .next-month {
+    border: 2px solid #ffffff;
+    border-radius: 3rem;
+    font-size: 12px;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 6px;
+}
+
+.prev-month {
+    float: left;
+}
+
+.next-month {
+    float: right;
+}
+
+.clearfix:before, .clearfix:after {
+    content:" ";
+    clear:both;
+    display:table
+}
+
 @media (max-width: 51rem) {
   .time-date {
     width: 23.1rem;
