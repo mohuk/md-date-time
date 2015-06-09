@@ -1,4 +1,8 @@
-angular.module('mdDateTime', []).directive('timeDatePicker', [
+(function(){
+
+  'use strict';
+
+  angular.module('mdDateTime', []).directive('timeDatePicker', [
   '$filter', '$sce', '$rootScope', '$parse', 'timeDate', function($filter, $sce, $rootScope, $parse, timeDate){
     var dateFilter;
     dateFilter = $filter('date');
@@ -12,7 +16,8 @@ angular.module('mdDateTime', []).directive('timeDatePicker', [
       templateUrl: 'src/template.html',
       link: function(scope, element, attrs, ngModel){
         var cancelFn, saveFn;
-        scope.crates = timeDate.dates();
+
+        scope.dates = timeDate.dates();
         scope.days = timeDate.days();
         var dateRange = scope.$eval(attrs['selectDateRange']);
 
@@ -133,17 +138,16 @@ angular.module('mdDateTime', []).directive('timeDatePicker', [
               return new Date(this.year, this.month, d).getMonth() === this.month;
             },
             "class": function(d){
-              className = "";
-              if((scope.date != null) && new Date(this.year, this.month, d).getTime() === new Date(scope.date.getTime()).setHours(0, 0, 0, 0)){
-                className = className + " selected";
+              var date = new Date(this.year, this.month, d);
+              var className = "";
+              if((scope.date != null) && date.getTime() === new Date(scope.date.getTime()).setHours(0, 0, 0, 0)){
+                className = className + ' selected';
               }
-              else
-              if(new Date(this.year, this.month, d).getTime() === new Date().setHours(0, 0, 0, 0)){
-                className = className + " today";
+              if(date.getTime() === new Date().setHours(0, 0, 0, 0)){
+                className = className + ' today';
               }
-              else
-              if (scope.dateRange.startDate < scope.date && scope.date < scope.dateRange.endDate) {
-                className = className + " selected-range";
+              if(scope.dateRange.startDate < date && date < scope.dateRange.endDate){
+                className = className + ' selected-range';
               }
               return className;
             },
@@ -158,6 +162,9 @@ angular.module('mdDateTime', []).directive('timeDatePicker', [
               if(scope.date.getMonth() !== this.month){
                 return scope.date.setDate(0);
               }
+            },
+            selectRange: function(d){
+
             },
             incMonth: function(months){
               this.month += months;
@@ -269,7 +276,10 @@ angular.module('mdDateTime')
     function dates(){
       var dates = [];
       for(var i = calendar.MINDATE, len = calendar.MAXDATE; i <= len; i++){
-        dates.push(i);
+        dates.push({
+          date: i,
+          inRange: false
+        });
       }
       return dates;
     }
@@ -287,7 +297,9 @@ angular.module('mdDateTime')
     }
 
   })
-  .constant('calendar',{
+  .constant('calendar', {
     MINDATE: 2,
     MAXDATE: 31
   });
+
+}());
