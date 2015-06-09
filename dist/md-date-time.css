@@ -19,6 +19,10 @@
   border: none;
   width: auto;
   font-size: 1.2rem;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .time-date > .display {
   position: relative;
@@ -105,7 +109,7 @@
 }
 .time-date > .control > .slider > .date-control > .title {
   font-weight: 500;
-  line-height: 2.4rem;
+  line-height: 3rem;
   background-color: #939498;
     color: #ffffff;
 }
@@ -373,7 +377,7 @@
     line-height: 20px;
     text-align: center;
     cursor: pointer;
-    margin: 6px;
+    margin: 11px 8px;
 }
 
 .prev-month {
@@ -388,6 +392,16 @@
     content:" ";
     clear:both;
     display:table
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: transparent;
+    background: transparent;
+}
+
+::selection {
+    color: transparent;
+    background: transparent;
 }
 
 @media (max-width: 51rem) {
