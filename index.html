@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <link rel="stylesheet" href="src/styles.css">
     <link rel="stylesheet" href="src/bower_components/angular-material/angular-material.css">
@@ -12,9 +11,17 @@
   <script src="src/bower_components/angular-material/angular-material.js"></script>
 
   <body ng-app="demo">
-    <time-date-picker ng-model="date" select-date-range="{startDate: '06-06-15', endDate:'06-08-15'}"></time-date-picker>
+<date-picker></date-picker>
+   
+
+   <!-- <div ng-controller="calendarController as vm">
+     <button ng-click="vm.getDatePicker()" class="btn">Get Calander</button>
+   </div>  -->
+    <!-- <time-date-picker ng-model="date" select-date-range="{startDate: '06-06-15', endDate:'06-08-15'}"></time-date-picker> -->
   </body>
 
   <script src="src/main.js"></script>
   <script src="src/demo.js"></script>
+  <script src="src/datePicker-directive.js"></script>
+  
 </html>

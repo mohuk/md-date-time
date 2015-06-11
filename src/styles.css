@@ -9,6 +9,15 @@
 /* End Variable Declaration */
 /* Start Main Styling */
 
+/*Date picker Btn*/
+
+.btn{
+  margin-top: 50px;
+  margin-left: 800px;
+  
+}
+/* Date picker Btn*/
+
 .selected-range {
   background-color: #e0f3f9;
 }
@@ -452,4 +461,5 @@
     width: 100%;
     float: left;
   }
-}
+
+

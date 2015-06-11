@@ -146,7 +146,7 @@
               if(date.getTime() === new Date().setHours(0, 0, 0, 0)){
                 className = className + ' today';
               }
-              if(scope.dateRange.startDate < date && date < scope.dateRange.endDate){
+              if(scope.dateRange.startDate <= date && date <= scope.dateRange.endDate){
                 className = className + ' selected-range';
               }
               return className;
