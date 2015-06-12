@@ -1,14 +1,4 @@
 <div ng-class="modeClass()" class="time-date">
-<!-- need to be ngIf-ed  -->
-<!--   <div ng-click="modeSwitch()" aria-label="Switch to {{modeSwitchText()}}" class="display">
-    <div class="title">{{display.title()}}</div>
-    <div class="content">
-      <div class="super-title">{{display.super()}}</div>
-      <div ng-bind-html="display.main()" class="main-title"></div>
-      <div class="sub-title">{{display.sub()}}</div>
-    </div>
-  </div> -->
-<!-- finish -->
   <div class="control">
     <div class="full-title">{{display.fullTitle()}}</div>
     <div class="slider">
@@ -27,27 +17,4 @@
           <md-button ng-repeat="date in dates" ng-class="calendar.class(date.date)" ng-show="calendar.isVisible(date.date)" ng-click="calendar.select(date.date)" class="day-cell">{{date.date}}</md-button>
         </div>
       </div>
-<!--       <md-button ng-click="modeSwitch()" aria-label="Switch to {{modeSwitchText()}}" class="switch-control"><i class="fa fa-clock-o"></i><i class="fa fa-calendar"></i><span class="visuallyhidden">{{modeSwitchText()}}</span></md-button>
-      <div class="time-control">
-        <div class="time-inputs">
-          <input type="number" min="{{hours24 ? 0 : 1}}" max="{{hours24 ? 23 : 12}}" ng-model="clock.hours"/>
-          <md-button ng-click="clock.incHours(1)" aria-label="Increment Hours" class="hours up"><i class="fa fa-caret-up"></i></md-button>
-          <md-button ng-click="clock.incHours(-1)" aria-label="Decrement Hours" class="hours down"><i class="fa fa-caret-down"></i></md-button>
-          <input type="number" min="0" max="59" ng-model="clock.minutes"/>
-          <md-button ng-click="clock.incMinutes(1)" aria-label="Increment Minutes" class="minutes up"><i class="fa fa-caret-up"></i></md-button>
-          <md-button ng-click="clock.incMinutes(-1)" aria-label="Decrement Minutes" class="minutes down"><i class="fa fa-caret-down"></i></md-button>
-        </div>
-        <div ng-if="!hours24" class="buttons">
-          <md-button ng-click="clock.setAM()" aria-label="Switch AM/PM">{{date | date:'a'}}</md-button>
-        </div>
-      </div> -->
-    </div>
-  </div>
-  <!-- need to be ngIf-ed -->
-<!--   <div class="buttons">
-    <md-button ng-click="setNow()" aria-label="Set To Current {{ dispalyMode == 'date' ? 'Date' : 'Date/Time'}}">Now </md-button>
-    <md-button ng-click="cancel()" aria-label="Cancel">Cancel</md-button>
-    <md-button ng-click="save()" aria-label="Save">Save</md-button>
-  </div> -->
-  <!-- finish -->
 </div>

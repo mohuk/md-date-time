@@ -20,11 +20,12 @@
         scope.dates = timeDate.dates();
         scope.days = timeDate.days();
         var dateRange = scope.$eval(attrs['selectDateRange']);
-
-        scope.dateRange = {
-          startDate: new Date(dateRange.startDate),
-          endDate: new Date(dateRange.endDate)
-        };
+        if(dateRange){
+          scope.dateRange = {
+            startDate: new Date(dateRange.startDate),
+            endDate: new Date(dateRange.endDate)
+          };
+        }
 
         attrs.$observe('defaultMode', function(val){
           if(val !== 'time' && val !== 'date'){

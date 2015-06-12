@@ -1,47 +1,34 @@
 (function(){
 
-  'use strict';
+  angular.module('mdDateTime')
+    .directive('mdDateTimeWidget', mdDateTimeWidget);
 
-  angular.module('demo', [])
-        .directive('datePicker',datePickerFunction);
+    /* ngInject */
+    function mdDateTimeWidget($compile){
+      return{
+        restrict: 'A',
+        link: function(scope, elem, attr){
+          scope.selectDateRange = scope[attr['selectDateRange']];
+          scope.date = scope[attr['model']] || scope.selectDateRange.startDate;
+          var pickerDirective = '<time-date-picker ng-model="date" select-date-range="{{selectDateRange}}"></time-date-picker>';
+          var compiledElem = $compile(pickerDirective)(scope);
+          var body = angular.element(document.querySelector('body'));
+          var isOpen = false;
 
-        function datePickerFunction($compile){
-        	return {
-        		restrict: 'E',
-        		transclude: true,
-        		//replace: true,
-        		scope:{
-         			modelValue: '=ngModel'
-           		},
-         		//require: 'ngModel',
-         		//require: "timeDatePicker",
-		 		templateUrl: "src/datePicker-template.html",
-		 		compile:function(element, attrs, ngModel){
-                	return{
-	                	pre:function(scope, iElem, iAttrs){
-		            			scope.getDatePicker = DatePickerFunction
+          elem.bind('click', function(){
+             isOpen? closeCalendar() : openCalendar();
+             isOpen = !isOpen;
+          });
 
-        		    			scope.range = {
-     	        				startDate: '1-1-15',
-     	        				endDate: '2-1-15'
-            				}
-     						elet()
-     						var btn = angular.element(document.getElementsByClassName('btn'))
-     						scope.style= {'margin-left': (btn.prop('offsetLeft')-120)+'px' }
-     						scope.date = ''
-     						function elet(){
-      			  				scope.elem = $compile("<div ng-style='{{style}}' ><time-date-picker  ng-model='date' select-date-range='{{range}}'></time-date-picker></div>")(scope);	
-     							
-     							console.log(scope.elem)
-     						}
-     						function DatePickerFunction(){
-        						btn.after(scope.elem)
-     						}//DatePickerFunction
-                		}
-                	}
-		  		},//compile
-	        } //return
-    }//datePickerFunction
-        
+          function openCalendar(){
+            body.append(compiledElem);
+          }
+
+          function closeCalendar(){
+            angular.element(document.querySelector('.time-date')).remove();
+          }
+        }
+      }
+    }
 
 }());

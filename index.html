@@ -3,25 +3,29 @@
   <head>
     <link rel="stylesheet" href="src/styles.css">
     <link rel="stylesheet" href="src/bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
   </head>
-  <script src="src/bower_components/angular/angular.js"></script>
-  <script src="src/bower_components/angular-aria/angular-aria.js"></script>
-  <script src="src/bower_components/angular-animate/angular-animate.js"></script>
-  <script src="src/bower_components/angular-material/angular-material.js"></script>
-
   <body ng-app="demo">
-<date-picker></date-picker>
-   
+  <!-- <date-picker></date-picker> -->
+
 
    <!-- <div ng-controller="calendarController as vm">
      <button ng-click="vm.getDatePicker()" class="btn">Get Calander</button>
    </div>  -->
-    <!-- <time-date-picker ng-model="date" select-date-range="{startDate: '06-06-15', endDate:'06-08-15'}"></time-date-picker> -->
+<!--     <time-date-picker ng-model="date" select-date-range="{startDate: '06-06-15', endDate:'06-08-15'}">
+    </time-date-picker> -->
+    <div ng-controller="appCtrl">
+      <input type="button" value="calendar" md-date-time-widget select-date-range="range"/>
+      {{date}}
+    </div>
   </body>
 
+  <script src="src/bower_components/angular/angular.js"></script>
+  <script src="src/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="src/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="src/bower_components/angular-material/angular-material.js"></script>
   <script src="src/main.js"></script>
   <script src="src/demo.js"></script>
   <script src="src/datePicker-directive.js"></script>
-  
+
 </html>
